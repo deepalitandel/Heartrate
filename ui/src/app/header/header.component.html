@@ -1,0 +1,29 @@
+<div style="position: fixed; width: 100%; z-index: 1;">
+   <div class="form-group">
+      <label for="file">Choose File</label>
+      <input #myInput type="file" id="file" (change)="handleFileInput($event.target.files)">
+      <button class="btn btn-primary" [disabled]="!isUploaded" type="submit"
+         (click)="uploadFileToActivity($event)">Upload</button>
+
+   </div>
+   <div class="row">
+
+      <div class="col-sm-6">
+         <button class="btn btn-primary" type="button" (click)="calculateAverage()">Next Week Predication</button>
+      </div>
+   </div>
+   <div class="example-container">
+      <table class="table table-striped">
+         <thead>
+            <tr>
+               <th *ngFor="let d of displayedColumns" scope="col">{{d}}</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr *ngFor="let d of dataSource">
+               <td *ngFor="let a of displayedColumns">{{d[a]}}</td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+</div>
